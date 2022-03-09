@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Editor.css';
 
-export default function Editor({ title, setTitle }) {
+export default function Editor({ title, setTitle, subtitle, setSubtitle, font, setFont, setAlign }) {
   return (
     <div className="editor">
       <div className="form-control">
@@ -10,11 +10,11 @@ export default function Editor({ title, setTitle }) {
         <label htmlFor="title">Title</label>
       </div>
       <div className="form-control">
-        <input type="text" />
+        <input type="text" value={subtitle} onChange={(e) => setSubtitle(e.target.value)} />
         <label>Subtitle</label>
       </div>
       <div className="form-control">
-        <select>
+        <select onChange={(e) => { setFont(e.target.value); }}>
           <option value="architect">{"Architect's Daughter"}</option>
           <option value="comforter">Comforter</option>
           <option value="fredoka">Fredoka</option>
@@ -28,7 +28,7 @@ export default function Editor({ title, setTitle }) {
       </div>
       <div className="form-control">
         <label>Alignment</label>
-        <div className="radio-group">
+        <div className="radio-group" onChange={(e) => { setAlign(e.target.value); }}>
           <label>
             <input name="align" type="radio" value="left" />
             <i className="ri-align-left"></i>
