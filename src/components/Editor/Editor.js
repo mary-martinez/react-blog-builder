@@ -2,15 +2,15 @@ import React from 'react';
 
 import './Editor.css';
 
-export default function Editor({ title, setTitle, subtitle, setSubtitle, font, setFont, setAlign }) {
+export default function Editor({ setTitle, setSubtitle, setFont, setAlign, setText }) {
   return (
     <div className="editor">
       <div className="form-control">
-        <input name="title" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+        <input name="title" type="text" onChange={(e) => setTitle(e.target.value)} />
         <label htmlFor="title">Title</label>
       </div>
       <div className="form-control">
-        <input type="text" value={subtitle} onChange={(e) => setSubtitle(e.target.value)} />
+        <input type="text" onChange={(e) => setSubtitle(e.target.value)} />
         <label>Subtitle</label>
       </div>
       <div className="form-control">
@@ -43,7 +43,7 @@ export default function Editor({ title, setTitle, subtitle, setSubtitle, font, s
           </label>
         </div>
       </div>
-      <div className="form-control">
+      <div className="form-control" onChange={(e) => { setText(e.target.value); }}>
         <textarea style={{ height: '250px' }} />
         <label>Text</label>
       </div>
